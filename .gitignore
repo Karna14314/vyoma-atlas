@@ -1,0 +1,122 @@
+﻿# Android
+.gradle/
+.idea/
+build/
+app/build/
+*.iml
+local.properties
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.ap_
+*.aab
+
+# Keystore files
+keystore.properties
+*.jks
+*.keystore
+keysbackup/
+
+# Data (Ignore raw sources)
+/data/
+
+# Release builds
+release/
+
+# Logs
+*.log
+build_log*.txt
+build_output*.txt
+install_log.txt
+
+# Environment files
+.env
+
+# Generated files
+app/schemas/
+app/build/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Backup files
+*.bak
+*.backup
+
+# IDE files
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+temp/
+tmp/
+Data/temp_*/
+Data/temp_images/
+Data/temp_gallery/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Package files
+*.tgz
+
+# Coverage directory
+coverage/
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test

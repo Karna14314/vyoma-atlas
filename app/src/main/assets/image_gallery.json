@@ -1,0 +1,157 @@
+{
+  "mercury": [
+    "https://photojournal.jpl.nasa.gov/catalog/PIA15160",
+    "https://science.nasa.gov/wp-content/uploads/2023/05/mercury-from-messenger-pia15160-1920x640-1.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/4/4a/Mercury_in_true_color.jpg"
+  ],
+  "venus": [
+    "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
+    "https://science.nasa.gov/wp-content/uploads/2023/09/venus-800.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA23791"
+  ],
+  "earth": [
+    "https://photojournal.jpl.nasa.gov/catalog/PIA18033",
+    "https://science.nasa.gov/wp-content/uploads/2023/05/earth-blue-marble.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"
+  ],
+  "mars": [
+    "https://science.nasa.gov/wp-content/uploads/2023/05/mars-800.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA25659"
+  ],
+  "jupiter": [
+    "https://science.nasa.gov/wp-content/uploads/2023/05/jupiter-800.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA21972"
+  ],
+  "saturn": [
+    "https://photojournal.jpl.nasa.gov/catalog/PIA21046",
+    "https://science.nasa.gov/wp-content/uploads/2023/05/saturn-800.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg"
+  ],
+  "uranus": [
+    "https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA18182",
+    "https://science.nasa.gov/wp-content/uploads/2023/05/uranus-800.jpg"
+  ],
+  "neptune": [
+    "https://science.nasa.gov/wp-content/uploads/2023/05/neptune-800.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA01492"
+  ],
+  "pluto": [
+    "https://science.nasa.gov/wp-content/uploads/2023/05/pluto-800.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA19857"
+  ],
+  "sun": [
+    "https://upload.wikimedia.org/wikipedia/commons/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA03149",
+    "https://science.nasa.gov/wp-content/uploads/2023/05/sun-800.jpg"
+  ],
+  "sirius": [
+    "https://upload.wikimedia.org/wikipedia/commons/1/1f/Sirius_A_and_B_Hubble_photo.editted.PNG"
+  ],
+  "vega": [
+    "https://upload.wikimedia.org/wikipedia/commons/2/26/Vega_-_star_in_the_constellation_Lyra.jpg"
+  ],
+  "betelgeuse": [
+    "https://upload.wikimedia.org/wikipedia/commons/5/57/Betelgeuse_captured_by_ALMA.jpg"
+  ],
+  "moon": [
+    "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA00405",
+    "https://science.nasa.gov/wp-content/uploads/2023/05/moon-800.jpg"
+  ],
+  "phobos": [
+    "https://photojournal.jpl.nasa.gov/catalog/PIA10368",
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA10368.jpg"
+  ],
+  "deimos": [
+    "https://photojournal.jpl.nasa.gov/catalog/PIA11826"
+  ],
+  "io": [
+    "https://photojournal.jpl.nasa.gov/catalog/PIA00744",
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA00744.jpg"
+  ],
+  "europa": [
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA19048.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA19048"
+  ],
+  "ganymede": [
+    "https://photojournal.jpl.nasa.gov/catalog/PIA00716"
+  ],
+  "callisto": [
+    "https://photojournal.jpl.nasa.gov/catalog/PIA03456"
+  ],
+  "titan": [
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA14602.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA14602"
+  ],
+  "enceladus": [
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA20522.jpg",
+    "https://photojournal.jpl.nasa.gov/catalog/PIA20522"
+  ],
+  "triton": [
+    "https://photojournal.jpl.nasa.gov/catalog/PIA00340"
+  ],
+  "orion_nebula": [
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA08865.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/f/f3/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg"
+  ],
+  "crab_nebula": [
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA03606.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/0/00/Crab_Nebula.jpg"
+  ],
+  "eagle_nebula": [
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA17550.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/2/2b/Eagle_Nebula_from_ESO.jpg"
+  ],
+  "ring_nebula": [
+    "https://upload.wikimedia.org/wikipedia/commons/1/13/Ring_Nebula.jpg",
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA04228.jpg"
+  ],
+  "horsehead_nebula": [
+    "https://upload.wikimedia.org/wikipedia/commons/6/68/Barnard_33.jpg",
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA04229.jpg"
+  ],
+  "helix_nebula": [
+    "https://upload.wikimedia.org/wikipedia/commons/3/38/Helix_Nebula_by_Hubble.jpg"
+  ],
+  "milky_way": [
+    "https://upload.wikimedia.org/wikipedia/commons/4/43/ESO-VLT-Laser-phot-33a-07.jpg",
+    "https://science.nasa.gov/wp-content/uploads/2023/05/milky-way-800.jpg"
+  ],
+  "andromeda": [
+    "https://upload.wikimedia.org/wikipedia/commons/9/98/Andromeda_Galaxy_%28with_h-alpha%29.jpg",
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA15416.jpg",
+    "https://science.nasa.gov/wp-content/uploads/2023/05/andromeda-800.jpg"
+  ],
+  "triangulum": [
+    "https://upload.wikimedia.org/wikipedia/commons/6/65/Triangulum_Galaxy_-_M33_%28151646911871%29.jpg"
+  ],
+  "whirlpool": [
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA13890.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/d/db/Messier51_sRGB.jpg"
+  ],
+  "sombrero": [
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA15226.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/5e/M104_ngc4594_sombrero_galaxy_hi-res.jpg"
+  ],
+  "large_magellanic_cloud": [
+    "https://upload.wikimedia.org/wikipedia/commons/7/7f/Large_Magellanic_Cloud_%28ESO%29.jpg"
+  ],
+  "m87": [
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA23002.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/9/9f/Messier_87_Hubble_WikiSky.jpg"
+  ],
+  "orion": [
+    "https://upload.wikimedia.org/wikipedia/commons/f/fb/Orion_3008_huge.jpg"
+  ],
+  "ceres": [
+    "https://photojournal.jpl.nasa.gov/jpeg/PIA19547.jpg"
+  ],
+  "trappist_1": [
+    "https://science.nasa.gov/wp-content/uploads/2023/05/trappist-1-800.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/3/34/Comparison_of_the_sizes_of_the_TRAPPIST-1_planets_with_Solar_System_bodies.jpg"
+  ]
+}

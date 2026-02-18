@@ -1,0 +1,1008 @@
+[
+  {
+    "id": "mercury",
+    "name": "Mercury",
+    "type": "PLANET",
+    "category": "Solar System",
+    "description": "\n\n• Smallest planet in our solar system\n• Closest planet to the Sun\n• Fastest planet, zipping around the Sun every 88 Earth days\n• Has the most extreme temperature variations\n• Not the hottest planet despite being closest to Sun (Venus is hotter)",
+    "distanceAu": 0.39,
+    "radiusKm": 2439.5,
+    "magnitude": -0.4,
+    "rightAscension": 0,
+    "declination": 0,
+    "parentId": "sun",
+    "metadata": {
+      "mass_kg": 3.3011e+23,
+      "orbital_period_days": 88,
+      "rotation_period_hours": 1407.6,
+      "moons_count": 0,
+      "has_rings": false,
+      "atmosphere": "Extremely thin, oxygen, sodium, hydrogen"
+    }
+  },
+  {
+    "id": "venus",
+    "name": "Venus",
+    "type": "PLANET",
+    "category": "Solar System",
+    "description": "\n\n• Hottest planet in solar system (462°C) due to greenhouse effect\n• Rotates backwards (retrograde rotation)\n• Longest day of any planet (243 Earth days)\n• Brightest planet visible from Earth\n• Surface pressure 92 times greater than Earth's",
+    "distanceAu": 0.72,
+    "radiusKm": 6052.0,
+    "magnitude": -4.6,
+    "rightAscension": 0,
+    "declination": 0,
+    "parentId": "sun",
+    "metadata": {
+      "mass_kg": 4.8675e+24,
+      "orbital_period_days": 224.7,
+      "rotation_period_hours": -5832.5,
+      "moons_count": 0,
+      "has_rings": false,
+      "atmosphere": "96% CO2, 3% N2, thick clouds of sulfuric acid"
+    }
+  },
+  {
+    "id": "earth",
+    "name": "Earth",
+    "type": "PLANET",
+    "category": "Solar System",
+    "description": "\n\n• Only known planet to support life\n• 71% of surface covered by water\n• Has active plate tectonics\n• Magnetic field protects from solar radiation\n• Only planet not named after a god/goddess",
+    "distanceAu": 1.0,
+    "radiusKm": 6378.0,
+    "magnitude": -3.99,
+    "rightAscension": null,
+    "declination": null,
+    "parentId": "sun",
+    "metadata": {
+      "mass_kg": 5.972e+24,
+      "orbital_period_days": 365.25,
+      "rotation_period_hours": 23.93,
+      "moons_count": 1,
+      "has_rings": false,
+      "atmosphere": "78% N2, 21% O2, 1% other gases"
+    }
+  },
+  {
+    "id": "mars",
+    "name": "Mars",
+    "type": "PLANET",
+    "category": "Solar System",
+    "description": "\n\n• Known as the Red Planet due to iron oxide on surface\n• Home to Olympus Mons, largest volcano in solar system\n• Has the largest canyon, Valles Marineris\n• Evidence of ancient water flows\n• Target for future human exploration",
+    "distanceAu": 1.52,
+    "radiusKm": 3396.0,
+    "magnitude": -2.94,
+    "rightAscension": 0,
+    "declination": 0,
+    "parentId": "sun",
+    "metadata": {
+      "mass_kg": 6.4171e+23,
+      "orbital_period_days": 687,
+      "rotation_period_hours": 24.62,
+      "moons_count": 2,
+      "has_rings": false,
+      "atmosphere": "95% CO2, 3% N2, 1.6% Ar"
+    }
+  },
+  {
+    "id": "jupiter",
+    "name": "Jupiter",
+    "type": "PLANET",
+    "category": "Solar System",
+    "description": "\n\n• Largest planet in solar system\n• More than 1,000 Earths could fit inside\n• Great Red Spot is a storm larger than Earth\n• Fastest rotation of any planet\n• Acts as 'vacuum cleaner' protecting inner planets",
+    "distanceAu": 5.2,
+    "radiusKm": 71492.0,
+    "magnitude": -2.94,
+    "rightAscension": 0,
+    "declination": 0,
+    "parentId": "sun",
+    "metadata": {
+      "mass_kg": 1.898e+27,
+      "orbital_period_days": 4331,
+      "rotation_period_hours": 9.92,
+      "moons_count": 95,
+      "has_rings": true,
+      "atmosphere": "89% H2, 10% He, traces of methane, ammonia"
+    }
+  },
+  {
+    "id": "saturn",
+    "name": "Saturn",
+    "type": "PLANET",
+    "category": "Solar System",
+    "description": "\n\n• Most spectacular ring system of any planet\n• Least dense planet - would float in water\n• Hexagonal storm at north pole\n• Moon Titan has thick atmosphere and liquid methane lakes\n• Most moons of any planet (146 confirmed)",
+    "distanceAu": 9.58,
+    "radiusKm": 60268.0,
+    "magnitude": 0.46,
+    "rightAscension": 0,
+    "declination": 0,
+    "parentId": "sun",
+    "metadata": {
+      "mass_kg": 5.683e+26,
+      "orbital_period_days": 10747,
+      "rotation_period_hours": 10.66,
+      "moons_count": 146,
+      "has_rings": true,
+      "atmosphere": "96% H2, 3% He"
+    }
+  },
+  {
+    "id": "uranus",
+    "name": "Uranus",
+    "type": "PLANET",
+    "category": "Solar System",
+    "description": "\n\n• Rotates on its side (98° axial tilt)\n• Coldest planetary atmosphere in solar system\n• First planet discovered with telescope\n• Methane gives it blue-green color\n• Rings discovered in 1977",
+    "distanceAu": 19.22,
+    "radiusKm": 25559.0,
+    "magnitude": 5.68,
+    "rightAscension": 0,
+    "declination": 0,
+    "parentId": "sun",
+    "metadata": {
+      "mass_kg": 8.681e+25,
+      "orbital_period_days": 30589,
+      "rotation_period_hours": -17.24,
+      "moons_count": 27,
+      "has_rings": true,
+      "atmosphere": "83% H2, 15% He, 2% methane"
+    }
+  },
+  {
+    "id": "neptune",
+    "name": "Neptune",
+    "type": "PLANET",
+    "category": "Solar System",
+    "description": "\n\n• Winds up to 2,100 km/h - fastest in solar system\n• Discovered through mathematical prediction\n• Deep blue color from methane absorption\n• Moon Triton orbits backwards\n• Only planet not visible to naked eye",
+    "distanceAu": 30.05,
+    "radiusKm": 24764.0,
+    "magnitude": 7.78,
+    "rightAscension": 0,
+    "declination": 0,
+    "parentId": "sun",
+    "metadata": {
+      "mass_kg": 1.024e+26,
+      "orbital_period_days": 59800,
+      "rotation_period_hours": 16.11,
+      "moons_count": 14,
+      "has_rings": true,
+      "atmosphere": "80% H2, 19% He, 1% methane"
+    }
+  },
+  {
+    "id": "pluto",
+    "name": "Pluto",
+    "type": "DWARF_PLANET",
+    "category": "Solar System",
+    "description": "",
+    "distanceAu": 39.48,
+    "radiusKm": 1188.0,
+    "magnitude": 14.0,
+    "parentId": "sun",
+    "metadata": {
+      "moons_count": 5
+    }
+  },
+  {
+    "id": "sun",
+    "name": "Sun (Sol)",
+    "type": "STAR",
+    "category": "Solar System",
+    "description": "The star at the center of our Solar System.\n\n• Contains 99.86% of solar system's mass\n• Light takes 8 minutes 20 seconds to reach Earth\n• Converts 4 million tons of matter to energy every second\n• Will become red giant in 5 billion years\n• Travels at 828,000 km/h around galactic center",
+    "radiusKm": 696350.0,
+    "magnitude": -26.74,
+    "rightAscension": 0.0,
+    "declination": 0.0,
+    "metadata": {
+      "spectral_class": "G2V",
+      "surface_temp_c": 5500,
+      "age_billion_years": 4.6
+    }
+  },
+  {
+    "id": "sirius",
+    "name": "Sirius (Alpha Canis Majoris)",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Brightest star in night sky\n• Binary system with white dwarf companion\n• Called 'Dog Star'\n• 8.7 light years from Earth",
+    "magnitude": -1.46,
+    "distanceLy": 8.7,
+    "constellation": "Canis Major",
+    "rightAscension": 101.25,
+    "declination": -16.71,
+    "metadata": {
+      "spectral_type": "A1V",
+      "mass_solar": 2.02,
+      "radius_solar": 1.71,
+      "luminosity_solar": 25.4
+    }
+  },
+  {
+    "id": "canopus",
+    "name": "Canopus (Alpha Carinae)",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Second brightest star in night sky\n• Best seen from Southern Hemisphere\n• Used for spacecraft navigation\n• Giant star 10x Sun's mass",
+    "magnitude": -0.74,
+    "distanceLy": 310,
+    "constellation": "Carina",
+    "rightAscension": 96.0,
+    "declination": -52.7,
+    "metadata": {
+      "spectral_type": "A9II",
+      "mass_solar": 8.5,
+      "radius_solar": 71,
+      "luminosity_solar": 10700
+    }
+  },
+  {
+    "id": "arcturus",
+    "name": "Arcturus (Alpha Boötis)",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Fourth brightest star in night sky\n• Red giant star\n• Fast moving through space\n• Name means 'Guardian of the Bear'",
+    "magnitude": -0.05,
+    "distanceLy": 37,
+    "constellation": "Boötes",
+    "rightAscension": 213.9,
+    "declination": 19.19,
+    "metadata": {
+      "spectral_type": "K1.5III",
+      "mass_solar": 1.08,
+      "radius_solar": 25.4,
+      "luminosity_solar": 170
+    }
+  },
+  {
+    "id": "vega",
+    "name": "Vega (Alpha Lyrae)",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Fifth brightest star in night sky\n• First star photographed (1850)\n• First star with spectrum recorded\n• Pole star in 14,000 CE",
+    "magnitude": 0.03,
+    "distanceLy": 25,
+    "constellation": "Lyra",
+    "rightAscension": 279.3,
+    "declination": 38.78,
+    "metadata": {
+      "spectral_type": "A0V",
+      "mass_solar": 2.135,
+      "radius_solar": 2.362,
+      "luminosity_solar": 40.12
+    }
+  },
+  {
+    "id": "rigel",
+    "name": "Rigel (Beta Orionis)",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Seventh brightest star in night sky\n• Blue supergiant\n• Most luminous star near Earth\n• Orion's left foot",
+    "magnitude": 0.13,
+    "distanceLy": 860,
+    "constellation": "Orion",
+    "rightAscension": 78.6,
+    "declination": -8.2,
+    "metadata": {
+      "spectral_type": "B8Ia",
+      "mass_solar": 21,
+      "radius_solar": 78.9,
+      "luminosity_solar": 120000
+    }
+  },
+  {
+    "id": "betelgeuse",
+    "name": "Betelgeuse (Alpha Orionis)",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Ninth brightest star in night sky\n• Red supergiant\n• Expected to go supernova\n• Orion's right shoulder\n• If at Sun's center, would reach Jupiter",
+    "magnitude": 0.5,
+    "distanceLy": 550,
+    "constellation": "Orion",
+    "rightAscension": 88.8,
+    "declination": 7.41,
+    "metadata": {
+      "spectral_type": "M1-2Ia-Iab",
+      "mass_solar": 11.6,
+      "radius_solar": 764,
+      "luminosity_solar": 126000
+    }
+  },
+  {
+    "id": "alpha_centauri",
+    "name": "Alpha Centauri",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Closest star system to Sun\n• Triple star system\n• Proxima Centauri is closest at 4.24 ly\n• Alpha Cen A similar to our Sun",
+    "magnitude": -0.01,
+    "distanceLy": 4.37,
+    "constellation": "Centaurus",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "spectral_type": "G2V + K1V",
+      "mass_solar": 2.0,
+      "radius_solar": 2.2,
+      "luminosity_solar": 2.0
+    }
+  },
+  {
+    "id": "altair",
+    "name": "Altair (Alpha Aquilae)",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Twelfth brightest star\n• Rotates rapidly (9 hours)\n• Flattened at poles\n• Summer Triangle member",
+    "magnitude": 0.76,
+    "distanceLy": 17,
+    "constellation": "Aquila",
+    "rightAscension": 297.7,
+    "declination": 8.87,
+    "metadata": {
+      "spectral_type": "A7V",
+      "mass_solar": 1.79,
+      "radius_solar": 1.63,
+      "luminosity_solar": 10.6
+    }
+  },
+  {
+    "id": "aldebaran",
+    "name": "Aldebaran (Alpha Tauri)",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Fourteenth brightest star\n• Red giant\n• Bull's eye in Taurus\n• Name means 'The Follower'",
+    "magnitude": 0.87,
+    "distanceLy": 65,
+    "constellation": "Taurus",
+    "rightAscension": 68.98,
+    "declination": 16.51,
+    "metadata": {
+      "spectral_type": "K5III",
+      "mass_solar": 1.16,
+      "radius_solar": 44.2,
+      "luminosity_solar": 439
+    }
+  },
+  {
+    "id": "antares",
+    "name": "Antares (Alpha Scorpii)",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Sixteenth brightest star\n• Red supergiant\n• Heart of the Scorpion\n• Name means 'Rival of Mars'\n• Will explode as supernova",
+    "magnitude": 1.06,
+    "distanceLy": 550,
+    "constellation": "Scorpius",
+    "rightAscension": 247.35,
+    "declination": -26.43,
+    "metadata": {
+      "spectral_type": "M1.5Iab-Ib",
+      "mass_solar": 12.4,
+      "radius_solar": 680,
+      "luminosity_solar": 75000
+    }
+  },
+  {
+    "id": "polaris",
+    "name": "Polaris (Alpha Ursae Minoris)",
+    "type": "STAR",
+    "category": "Stars",
+    "description": "\n\n• Current North Star\n• Triple star system\n• Used for navigation for centuries\n• Position changes over millennia",
+    "magnitude": 1.98,
+    "distanceLy": 433,
+    "constellation": "Ursa Minor",
+    "rightAscension": 37.95,
+    "declination": 89.26,
+    "metadata": {
+      "spectral_type": "F7Ib-II",
+      "mass_solar": 4.5,
+      "radius_solar": 46,
+      "luminosity_solar": 2500
+    }
+  },
+  {
+    "id": "moon",
+    "name": "Moon (Luna)",
+    "type": "MOON",
+    "category": "Solar System",
+    "description": "\n\n• Fifth largest moon in solar system\n• Same side always faces Earth (tidally locked)\n• Causes Earth's tides\n• Only celestial body visited by humans\n• Moving away from Earth 3.8 cm per year",
+    "radiusKm": 1737.5,
+    "magnitude": null,
+    "parentId": "earth",
+    "metadata": {
+      "mass_kg": 7.342e+22,
+      "orbital_period_days": 27.3,
+      "discovered": "Prehistoric times",
+      "distance_from_planet_km": 384400
+    }
+  },
+  {
+    "id": "phobos",
+    "name": "Phobos",
+    "type": "MOON",
+    "category": "Solar System",
+    "description": "\n\n• Larger and closer of Mars' two moons\n• Orbiting closer than any other moon to its planet\n• Will eventually crash into Mars or break into rings\n• Heavily cratered surface",
+    "radiusKm": 11.25,
+    "magnitude": null,
+    "parentId": "mars",
+    "metadata": {
+      "mass_kg": 1.072e+16,
+      "orbital_period_days": 0.32,
+      "discovered": "1877 by Asaph Hall",
+      "distance_from_planet_km": 9377
+    }
+  },
+  {
+    "id": "deimos",
+    "name": "Deimos",
+    "type": "MOON",
+    "category": "Solar System",
+    "description": "\n\n• Smaller and more distant Mars moon\n• Smoothest body in solar system due to dust\n• May be captured asteroid",
+    "radiusKm": 6.2,
+    "magnitude": null,
+    "parentId": "mars",
+    "metadata": {
+      "mass_kg": 1476000000000000.0,
+      "orbital_period_days": 1.26,
+      "discovered": "1877 by Asaph Hall",
+      "distance_from_planet_km": 23463
+    }
+  },
+  {
+    "id": "io",
+    "name": "Io",
+    "type": "MOON",
+    "category": "Solar System",
+    "description": "\n\n• Most volcanically active body in solar system\n• Over 400 active volcanoes\n• Surface constantly being resurfaced\n• Tidal heating from Jupiter causes volcanism\n• Yellow-orange color from sulfur compounds",
+    "radiusKm": 1821.5,
+    "magnitude": null,
+    "parentId": "jupiter",
+    "metadata": {
+      "mass_kg": 8.932e+22,
+      "orbital_period_days": 1.77,
+      "discovered": "1610 by Galileo Galilei",
+      "distance_from_planet_km": 421800
+    }
+  },
+  {
+    "id": "europa",
+    "name": "Europa",
+    "type": "MOON",
+    "category": "Solar System",
+    "description": "\n\n• Icy surface may hide subsurface ocean\n• Most likely place for extraterrestrial life\n• Smoothest surface of any solid body\n• Ice shell 15-25 km thick\n• Water plumes detected erupting from surface",
+    "radiusKm": 1561.0,
+    "magnitude": null,
+    "parentId": "jupiter",
+    "metadata": {
+      "mass_kg": 4.8e+22,
+      "orbital_period_days": 3.55,
+      "discovered": "1610 by Galileo Galilei",
+      "distance_from_planet_km": 671100
+    }
+  },
+  {
+    "id": "ganymede",
+    "name": "Ganymede",
+    "type": "MOON",
+    "category": "Solar System",
+    "description": "\n\n• Largest moon in solar system\n• Larger than planet Mercury\n• Only moon with its own magnetic field\n• Has subsurface ocean\n• Dark and light terrains on surface",
+    "radiusKm": 2634.0,
+    "magnitude": null,
+    "parentId": "jupiter",
+    "metadata": {
+      "mass_kg": 1.482e+23,
+      "orbital_period_days": 7.15,
+      "discovered": "1610 by Galileo Galilei",
+      "distance_from_planet_km": 1070400
+    }
+  },
+  {
+    "id": "callisto",
+    "name": "Callisto",
+    "type": "MOON",
+    "category": "Solar System",
+    "description": "\n\n• Second largest moon of Jupiter\n• Most heavily cratered object in solar system\n• Ancient surface unchanged for billions of years\n• May have subsurface ocean\n• Outermost Galilean moon",
+    "radiusKm": 2410.5,
+    "magnitude": null,
+    "parentId": "jupiter",
+    "metadata": {
+      "mass_kg": 1.076e+23,
+      "orbital_period_days": 16.69,
+      "discovered": "1610 by Galileo Galilei",
+      "distance_from_planet_km": 1882700
+    }
+  },
+  {
+    "id": "titan",
+    "name": "Titan",
+    "type": "MOON",
+    "category": "Solar System",
+    "description": "\n\n• Largest moon of Saturn\n• Only moon with thick atmosphere\n• Lakes and rivers of liquid methane\n• Huygens probe landed on surface in 2005\n• Atmosphere mostly nitrogen like Earth",
+    "radiusKm": 2574.5,
+    "magnitude": null,
+    "parentId": "saturn",
+    "metadata": {
+      "mass_kg": 1.345e+23,
+      "orbital_period_days": 15.95,
+      "discovered": "1655 by Christiaan Huygens",
+      "distance_from_planet_km": 1221870
+    }
+  },
+  {
+    "id": "enceladus",
+    "name": "Enceladus",
+    "type": "MOON",
+    "category": "Solar System",
+    "description": "\n\n• Brightest object in solar system (reflects 100% light)\n• Geysers erupt from south pole 'tiger stripes'\n• Subsurface global ocean confirmed\n• All ingredients for life present\n• Feeds Saturn's E-ring with ice particles",
+    "radiusKm": 252.0,
+    "magnitude": null,
+    "parentId": "saturn",
+    "metadata": {
+      "mass_kg": 1.08e+20,
+      "orbital_period_days": 1.37,
+      "discovered": "1789 by William Herschel",
+      "distance_from_planet_km": 238020
+    }
+  },
+  {
+    "id": "triton",
+    "name": "Triton",
+    "type": "MOON",
+    "category": "Solar System",
+    "description": "\n\n• Largest moon of Neptune\n• Orbits backwards (retrograde)\n• Coldest known surface in solar system (-235°C)\n• Active geysers of nitrogen gas\n• Likely captured Kuiper Belt object",
+    "radiusKm": 1353.5,
+    "magnitude": null,
+    "parentId": "neptune",
+    "metadata": {
+      "mass_kg": 2.14e+22,
+      "orbital_period_days": -5.88,
+      "discovered": "1846 by William Lassell",
+      "distance_from_planet_km": 354759
+    }
+  },
+  {
+    "id": "orion_nebula",
+    "name": "Orion Nebula (M42)",
+    "type": "NEBULA",
+    "category": "Deep Sky",
+    "description": "\n\n• Brightest nebula in sky\n• Visible to naked eye\n• Stellar nursery with 700+ young stars\n• Part of Orion's sword\n• Four Trapezium stars at center",
+    "magnitude": null,
+    "distanceLy": 1344,
+    "constellation": "Orion",
+    "rightAscension": 83.82,
+    "declination": -5.39,
+    "metadata": {
+      "nebula_type": "Emission/Reflection",
+      "size_ly": null
+    }
+  },
+  {
+    "id": "crab_nebula",
+    "name": "Crab Nebula (M1)",
+    "type": "NEBULA",
+    "category": "Deep Sky",
+    "description": "\n\n• Result of supernova observed in 1054 AD\n• Contains pulsar at center\n• Expanding at 1,500 km/s\n• Source of X-rays and gamma rays\n• First object in Messier catalog",
+    "magnitude": null,
+    "distanceLy": 6500,
+    "constellation": "Taurus",
+    "rightAscension": 83.63,
+    "declination": 22.01,
+    "metadata": {
+      "nebula_type": "Supernova Remnant",
+      "size_ly": null
+    }
+  },
+  {
+    "id": "eagle_nebula",
+    "name": "Eagle Nebula (M16)",
+    "type": "NEBULA",
+    "category": "Deep Sky",
+    "description": "\n\n• Famous 'Pillars of Creation'\n• Active star-forming region\n• Pillars are being eroded by radiation\n• Hubble's iconic image",
+    "magnitude": null,
+    "distanceLy": 7000,
+    "constellation": "Serpens",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "nebula_type": "Emission",
+      "size_ly": null
+    }
+  },
+  {
+    "id": "ring_nebula",
+    "name": "Ring Nebula (M57)",
+    "type": "NEBULA",
+    "category": "Deep Sky",
+    "description": "\n\n• Classic planetary nebula\n• Shell of gas from dying star\n• Central white dwarf visible\n• Football-shaped, viewed from end",
+    "magnitude": null,
+    "distanceLy": 2567,
+    "constellation": "Lyra",
+    "rightAscension": 283.4,
+    "declination": 33.03,
+    "metadata": {
+      "nebula_type": "Planetary",
+      "size_ly": null
+    }
+  },
+  {
+    "id": "horsehead_nebula",
+    "name": "Horsehead Nebula (Barnard 33)",
+    "type": "NEBULA",
+    "category": "Deep Sky",
+    "description": "\n\n• Dark nebula silhouetted against bright background\n• Horse head shape\n• Part of Orion Molecular Cloud Complex\n• Star formation occurring within",
+    "magnitude": null,
+    "distanceLy": 1375,
+    "constellation": "Orion",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "nebula_type": "Dark",
+      "size_ly": null
+    }
+  },
+  {
+    "id": "helix_nebula",
+    "name": "Helix Nebula (NGC 7293)",
+    "type": "NEBULA",
+    "category": "Deep Sky",
+    "description": "\n\n• Closest planetary nebula to Earth\n• Called 'Eye of God'\n• Complex structure with rings\n• Central star becoming white dwarf",
+    "magnitude": null,
+    "distanceLy": 655,
+    "constellation": "Aquarius",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "nebula_type": "Planetary",
+      "size_ly": null
+    }
+  },
+  {
+    "id": "milky_way",
+    "name": "Milky Way",
+    "type": "GALAXY",
+    "category": "Deep Sky",
+    "description": "\n\n• Our home galaxy\n• Contains supermassive black hole Sagittarius A*\n• Part of Local Group\n• Will collide with Andromeda in 4.5 billion years\n• Takes 230 million years to orbit galactic center",
+    "magnitude": null,
+    "distanceLy": null,
+    "constellation": null,
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "galaxy_type": "Barred Spiral",
+      "diameter_ly": 105700
+    }
+  },
+  {
+    "id": "andromeda",
+    "name": "Andromeda Galaxy (M31)",
+    "type": "GALAXY",
+    "category": "Deep Sky",
+    "description": "\n\n• Closest major galaxy to Milky Way\n• Largest galaxy in Local Group\n• Visible to naked eye\n• Approaching Milky Way at 110 km/s\n• Collision expected in 4.5 billion years",
+    "magnitude": null,
+    "distanceLy": null,
+    "constellation": null,
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "galaxy_type": "Barred Spiral",
+      "diameter_ly": 220000
+    }
+  },
+  {
+    "id": "triangulum",
+    "name": "Triangulum Galaxy (M33)",
+    "type": "GALAXY",
+    "category": "Deep Sky",
+    "description": "\n\n• Third largest in Local Group\n• Visible to naked eye in dark skies\n• Intense star formation in nucleus\n• May be satellite of Andromeda",
+    "magnitude": null,
+    "distanceLy": null,
+    "constellation": null,
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "galaxy_type": "Spiral",
+      "diameter_ly": 60000
+    }
+  },
+  {
+    "id": "whirlpool",
+    "name": "Whirlpool Galaxy (M51)",
+    "type": "GALAXY",
+    "category": "Deep Sky",
+    "description": "\n\n• Classic grand design spiral\n• Interacting with companion galaxy NGC 5195\n• First galaxy classified as spiral\n• Many young star clusters",
+    "magnitude": null,
+    "distanceLy": null,
+    "constellation": null,
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "galaxy_type": "Spiral",
+      "diameter_ly": 76000
+    }
+  },
+  {
+    "id": "sombrero",
+    "name": "Sombrero Galaxy (M104)",
+    "type": "GALAXY",
+    "category": "Deep Sky",
+    "description": "\n\n• Named for hat-like appearance\n• Bright nucleus and prominent dust lane\n• Many globular clusters\n• Strong X-ray source from center",
+    "magnitude": null,
+    "distanceLy": null,
+    "constellation": null,
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "galaxy_type": "Spiral/Lenticular",
+      "diameter_ly": 50000
+    }
+  },
+  {
+    "id": "large_magellanic_cloud",
+    "name": "Large Magellanic Cloud",
+    "type": "GALAXY",
+    "category": "Deep Sky",
+    "description": "\n\n• Satellite galaxy of Milky Way\n• Fourth largest galaxy in Local Group\n• Rich in star formation\n• Tarantula Nebula located here\n• Visible from Southern Hemisphere",
+    "magnitude": null,
+    "distanceLy": null,
+    "constellation": null,
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "galaxy_type": "Irregular",
+      "diameter_ly": 14000
+    }
+  },
+  {
+    "id": "m87",
+    "name": "Messier 87 (Virgo A)",
+    "type": "GALAXY",
+    "category": "Deep Sky",
+    "description": "\n\n• Home to first imaged black hole\n• Giant elliptical galaxy\n• Massive jet 5,000 light years long\n• Trillions of stars\n• Supermassive black hole 6.5 billion solar masses",
+    "magnitude": null,
+    "distanceLy": null,
+    "constellation": null,
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "galaxy_type": "Elliptical",
+      "diameter_ly": 120000
+    }
+  },
+  {
+    "id": "orion",
+    "name": "Orion",
+    "type": "CONSTELLATION",
+    "category": "Constellations",
+    "description": "",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "abbreviation": "Ori",
+      "area_sq_deg": null,
+      "brightest_star": null,
+      "mythology": "Greek hunter killed by scorpion"
+    }
+  },
+  {
+    "id": "ursa_major",
+    "name": "Ursa Major",
+    "type": "CONSTELLATION",
+    "category": "Constellations",
+    "description": "",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "abbreviation": "UMa",
+      "area_sq_deg": null,
+      "brightest_star": null,
+      "mythology": "Callisto transformed into bear"
+    }
+  },
+  {
+    "id": "cassiopeia",
+    "name": "Cassiopeia",
+    "type": "CONSTELLATION",
+    "category": "Constellations",
+    "description": "",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "abbreviation": "Cas",
+      "area_sq_deg": null,
+      "brightest_star": null,
+      "mythology": "Vain queen of Ethiopia"
+    }
+  },
+  {
+    "id": "scorpius",
+    "name": "Scorpius",
+    "type": "CONSTELLATION",
+    "category": "Constellations",
+    "description": "",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "abbreviation": "Sco",
+      "area_sq_deg": null,
+      "brightest_star": null,
+      "mythology": "Scorpion that killed Orion"
+    }
+  },
+  {
+    "id": "crux",
+    "name": "Crux",
+    "type": "CONSTELLATION",
+    "category": "Constellations",
+    "description": "",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "abbreviation": "Cru",
+      "area_sq_deg": null,
+      "brightest_star": null,
+      "mythology": null
+    }
+  },
+  {
+    "id": "cygnus",
+    "name": "Cygnus",
+    "type": "CONSTELLATION",
+    "category": "Constellations",
+    "description": "",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "abbreviation": "Cyg",
+      "area_sq_deg": null,
+      "brightest_star": null,
+      "mythology": "Zeus disguised as swan"
+    }
+  },
+  {
+    "id": "leo",
+    "name": "Leo",
+    "type": "CONSTELLATION",
+    "category": "Constellations",
+    "description": "",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "abbreviation": "Leo",
+      "area_sq_deg": null,
+      "brightest_star": null,
+      "mythology": "Nemean Lion killed by Hercules"
+    }
+  },
+  {
+    "id": "sagittarius",
+    "name": "Sagittarius",
+    "type": "CONSTELLATION",
+    "category": "Constellations",
+    "description": "",
+    "rightAscension": null,
+    "declination": null,
+    "metadata": {
+      "abbreviation": "Sgr",
+      "area_sq_deg": null,
+      "brightest_star": null,
+      "mythology": "Centaur archer"
+    }
+  },
+  {
+    "id": "ceres",
+    "name": "Ceres",
+    "type": "ASTEROID",
+    "category": "Small Bodies",
+    "description": "\n\n• Largest object in asteroid belt\n• First asteroid discovered\n• Classified as dwarf planet in 2006\n• Has bright spots (salt deposits)",
+    "radiusKm": 473.0,
+    "metadata": {
+      "discovery_year": 1801,
+      "discoverer": "Giuseppe Piazzi",
+      "location": "Asteroid Belt"
+    }
+  },
+  {
+    "id": "vesta",
+    "name": "Vesta",
+    "type": "ASTEROID",
+    "category": "Small Bodies",
+    "description": "\n\n• Second most massive asteroid\n• Visited by Dawn spacecraft 2011\n• Has giant crater at south pole\n• Source of many meteorites",
+    "radiusKm": 262.5,
+    "metadata": {
+      "discovery_year": 1807,
+      "discoverer": "Heinrich Olbers",
+      "location": "Asteroid Belt"
+    }
+  },
+  {
+    "id": "pallas",
+    "name": "Pallas",
+    "type": "ASTEROID",
+    "category": "Small Bodies",
+    "description": "\n\n• Third largest asteroid\n• Highly inclined orbit\n• Heavily cratered surface",
+    "radiusKm": 256.0,
+    "metadata": {
+      "discovery_year": 1802,
+      "discoverer": "Heinrich Olbers",
+      "location": "Asteroid Belt"
+    }
+  },
+  {
+    "id": "hygiea",
+    "name": "Hygiea",
+    "type": "ASTEROID",
+    "category": "Small Bodies",
+    "description": "\n\n• Fourth largest asteroid\n• May be classified as dwarf planet\n• Dark carbon-rich surface",
+    "radiusKm": 217.0,
+    "metadata": {
+      "discovery_year": 1849,
+      "discoverer": "Annibale de Gasparis",
+      "location": "Asteroid Belt"
+    }
+  },
+  {
+    "id": "trappist_1",
+    "name": "TRAPPIST-1 System",
+    "type": "EXOPLANET_SYSTEM",
+    "category": "Exoplanets",
+    "description": "System with 7 known planets.\n\n\n\n• All planets Earth-sized\n• Three planets in habitable zone\n• Planets very close together\n• All likely tidally locked\n• Best system for studying Earth-sized atmospheres",
+    "distanceLy": 40.7,
+    "constellation": "Aquarius",
+    "metadata": {
+      "star_type": "Ultra-cool red dwarf (M8V)",
+      "discovery_year": 2017,
+      "planets_count": 7
+    }
+  },
+  {
+    "id": "proxima_centauri",
+    "name": "Proxima Centauri System",
+    "type": "EXOPLANET_SYSTEM",
+    "category": "Exoplanets",
+    "description": "System with 2 known planets.\n\n\n\n• Closest star system to Sun\n• Proxima b in habitable zone\n• Red dwarf star - very active\n• Flares could affect habitability",
+    "distanceLy": 4.24,
+    "constellation": "Centaurus",
+    "metadata": {
+      "star_type": "Red dwarf (M5.5Ve)",
+      "discovery_year": null,
+      "planets_count": 2
+    }
+  },
+  {
+    "id": "kepler_186",
+    "name": "Kepler-186 System",
+    "type": "EXOPLANET_SYSTEM",
+    "category": "Exoplanets",
+    "description": "System with 5 known planets.\n\n\n\n• First Earth-sized planet in habitable zone\n• Kepler-186f is habitable zone planet\n• All planets smaller than Neptune\n• Red dwarf host star",
+    "distanceLy": 582,
+    "constellation": "Cygnus",
+    "metadata": {
+      "star_type": "Red dwarf (M1V)",
+      "discovery_year": 2014,
+      "planets_count": 5
+    }
+  },
+  {
+    "id": "hd_209458",
+    "name": "HD 209458 System",
+    "type": "EXOPLANET_SYSTEM",
+    "category": "Exoplanets",
+    "description": "System with 1 known planets.\n\n\n\n• First transiting exoplanet discovered\n• First exoplanet with detected atmosphere\n• Planet is 'hot Jupiter'\n• Atmosphere contains sodium and hydrogen",
+    "distanceLy": 159,
+    "constellation": "Pegasus",
+    "metadata": {
+      "star_type": "Sun-like (G0V)",
+      "discovery_year": 1999,
+      "planets_count": 1
+    }
+  },
+  {
+    "id": "51_pegasi",
+    "name": "51 Pegasi System",
+    "type": "EXOPLANET_SYSTEM",
+    "category": "Exoplanets",
+    "description": "System with 1 known planets.\n\n\n\n• First exoplanet around Sun-like star\n• 51 Pegasi b is 'hot Jupiter'\n• Discovery confirmed exoplanets exist\n• Nobel Prize awarded for discovery in 2019",
+    "distanceLy": 50.9,
+    "constellation": "Pegasus",
+    "metadata": {
+      "star_type": "Sun-like (G5V)",
+      "discovery_year": 1995,
+      "planets_count": 1
+    }
+  }
+]

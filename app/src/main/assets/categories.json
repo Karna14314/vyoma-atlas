@@ -1,0 +1,75 @@
+{
+  "Solar System": [
+    "mercury",
+    "venus",
+    "earth",
+    "mars",
+    "jupiter",
+    "saturn",
+    "uranus",
+    "neptune",
+    "pluto",
+    "sun",
+    "moon",
+    "phobos",
+    "deimos",
+    "io",
+    "europa",
+    "ganymede",
+    "callisto",
+    "titan",
+    "enceladus",
+    "triton"
+  ],
+  "Stars": [
+    "sirius",
+    "canopus",
+    "arcturus",
+    "vega",
+    "rigel",
+    "betelgeuse",
+    "alpha_centauri",
+    "altair",
+    "aldebaran",
+    "antares",
+    "polaris"
+  ],
+  "Constellations": [
+    "orion",
+    "ursa_major",
+    "cassiopeia",
+    "scorpius",
+    "crux",
+    "cygnus",
+    "leo",
+    "sagittarius"
+  ],
+  "Deep Sky": [
+    "orion_nebula",
+    "crab_nebula",
+    "eagle_nebula",
+    "ring_nebula",
+    "horsehead_nebula",
+    "helix_nebula",
+    "milky_way",
+    "andromeda",
+    "triangulum",
+    "whirlpool",
+    "sombrero",
+    "large_magellanic_cloud",
+    "m87"
+  ],
+  "Exoplanets": [
+    "trappist_1",
+    "proxima_centauri",
+    "kepler_186",
+    "hd_209458",
+    "51_pegasi"
+  ],
+  "Small Bodies": [
+    "ceres",
+    "vesta",
+    "pallas",
+    "hygiea"
+  ]
+}

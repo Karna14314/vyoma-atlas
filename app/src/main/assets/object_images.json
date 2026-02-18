@@ -1,0 +1,54 @@
+{
+  "mercury": [
+    "mercury_f2869255.webp",
+    "mercury_cdf07a71.webp"
+  ],
+  "venus": [
+    "venus_c48171f9.webp"
+  ],
+  "earth": [
+    "earth_93911e7e.webp"
+  ],
+  "mars": [
+    "mars_b98fe444.webp"
+  ],
+  "jupiter": [
+    "jupiter_9194d324.webp"
+  ],
+  "saturn": [
+    "saturn_b6e29d93.webp"
+  ],
+  "uranus": [
+    "uranus_feda64c9.webp"
+  ],
+  "neptune": [
+    "neptune_11e84dd3.webp"
+  ],
+  "sun": [
+    "sun_246547ec.webp"
+  ],
+  "betelgeuse": [
+    "betelgeuse_3b3dfbda.webp"
+  ],
+  "moon": [
+    "moon_f948abee.webp"
+  ],
+  "crab_nebula": [
+    "crab_nebula_828d8614.webp"
+  ],
+  "horsehead_nebula": [
+    "horsehead_nebula_0d516367.webp"
+  ],
+  "milky_way": [
+    "milky_way_9635f620.webp"
+  ],
+  "andromeda": [
+    "andromeda_834cde67.webp"
+  ],
+  "whirlpool": [
+    "whirlpool_6a3f6613.webp"
+  ],
+  "sombrero": [
+    "sombrero_b38be021.webp"
+  ]
+}
