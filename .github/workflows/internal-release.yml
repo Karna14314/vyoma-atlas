@@ -10,6 +10,9 @@ on:
       - 'version.properties'
       - '.github/workflows/internal-release.yml'
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
