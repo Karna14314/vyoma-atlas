@@ -1,0 +1,93 @@
+name: Deploy to Play Store Internal Testing
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'app/**'
+      - 'version.properties'
+      - '.github/workflows/internal-release.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+      
+      - name: Decode Keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_FILE }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 -d > $GITHUB_WORKSPACE/release.jks
+          
+      - name: Create keystore.properties
+        run: |
+          echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" > keystore.properties
+          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
+          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> keystore.properties
+          echo "storeFile=$GITHUB_WORKSPACE/release.jks" >> keystore.properties
+          
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+        
+      - name: Auto-increment version
+        run: |
+          chmod +x scripts/increment_version.sh
+          bash scripts/increment_version.sh
+          
+      - name: Commit version bump
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add version.properties
+          git diff --staged --quiet || git commit -m "chore: bump version [skip ci]"
+          git push || echo "No changes to push"
+        continue-on-error: true
+        
+      - name: Build Release AAB
+        run: ./gradlew bundleRelease
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          
+      - name: Read version info
+        id: version
+        run: |
+          VERSION_CODE=$(grep "versionCode=" version.properties | cut -d'=' -f2)
+          VERSION_NAME=$(grep "versionName=" version.properties | cut -d'=' -f2)
+          echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
+          echo "version_name=$VERSION_NAME" >> $GITHUB_OUTPUT
+          
+      - name: Upload to Play Store Internal Testing
+        uses: r0adkll/upload-google-play@v1.1.3
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: com.karnadigital.vyoma.atlas
+          releaseFiles: app/build/outputs/bundle/release/app-release.aab
+          track: internal
+          status: completed
+          whatsNewDirectory: distribution
+          
+      - name: Upload AAB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-${{ steps.version.outputs.version_name }}
+          path: app/build/outputs/bundle/release/app-release.aab
+          retention-days: 30
+          
+      - name: Notify success
+        if: success()
+        run: |
+          echo "✅ Successfully deployed version ${{ steps.version.outputs.version_name }} (code: ${{ steps.version.outputs.version_code }}) to Play Store Internal Testing!"

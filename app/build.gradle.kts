@@ -13,6 +13,13 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(keystorePropertiesFile.inputStream())
 }
 
+// Load version properties
+val versionPropertiesFile = rootProject.file("version.properties")
+val versionProperties = Properties()
+if (versionPropertiesFile.exists()) {
+    versionProperties.load(versionPropertiesFile.inputStream())
+}
+
 android {
     namespace = "com.karnadigital.vyoma.atlas"
     compileSdk = 35
@@ -21,8 +28,8 @@ android {
         applicationId = "com.karnadigital.vyoma.atlas"
         minSdk = 24
         targetSdk = 35
-        versionCode = 2
-        versionName = "1.1"
+        versionCode = (versionProperties["versionCode"] as String).toInt()
+        versionName = versionProperties["versionName"] as String
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

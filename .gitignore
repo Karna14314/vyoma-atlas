@@ -18,6 +18,7 @@ keystore.properties
 *.jks
 *.keystore
 keysbackup/
+release.jks
 
 # Data (Ignore raw sources)
 /data/
