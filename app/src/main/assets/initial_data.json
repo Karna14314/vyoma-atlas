@@ -19,7 +19,9 @@
     "radiusKm": 2439.5,
     "distanceAu": 0.39,
     "magnitude": -0.4,
-    "parentId": "sun"
+    "parentId": "sun",
+    "rightAscension": 40.0,
+    "declination": 15.0
   },
   {
     "id": "venus",
@@ -30,7 +32,9 @@
     "radiusKm": 6052.0,
     "distanceAu": 0.72,
     "magnitude": -4.6,
-    "parentId": "sun"
+    "parentId": "sun",
+    "rightAscension": 90.0,
+    "declination": 20.0
   },
   {
     "id": "earth",
@@ -41,7 +45,9 @@
     "radiusKm": 6371.0,
     "distanceAu": 1.0,
     "magnitude": -3.99,
-    "parentId": "sun"
+    "parentId": "sun",
+    "rightAscension": 0.0,
+    "declination": 0.0
   },
   {
     "id": "mars",
@@ -52,7 +58,9 @@
     "radiusKm": 3389.5,
     "distanceAu": 1.52,
     "magnitude": -2.94,
-    "parentId": "sun"
+    "parentId": "sun",
+    "rightAscension": 300.0,
+    "declination": -20.0
   },
   {
     "id": "jupiter",
@@ -63,7 +71,9 @@
     "radiusKm": 69910.0,
     "distanceAu": 5.2,
     "magnitude": -2.94,
-    "parentId": "sun"
+    "parentId": "sun",
+    "rightAscension": 60.0,
+    "declination": 20.0
   },
   {
     "id": "saturn",
@@ -74,7 +84,9 @@
     "radiusKm": 58230.0,
     "distanceAu": 9.58,
     "magnitude": 0.46,
-    "parentId": "sun"
+    "parentId": "sun",
+    "rightAscension": 330.0,
+    "declination": -15.0
   },
   {
     "id": "uranus",
@@ -85,7 +97,9 @@
     "radiusKm": 25362.0,
     "distanceAu": 19.22,
     "magnitude": 5.68,
-    "parentId": "sun"
+    "parentId": "sun",
+    "rightAscension": 45.0,
+    "declination": 15.0
   },
   {
     "id": "neptune",
@@ -96,7 +110,9 @@
     "radiusKm": 24622.0,
     "distanceAu": 30.05,
     "magnitude": 7.78,
-    "parentId": "sun"
+    "parentId": "sun",
+    "rightAscension": 345.0,
+    "declination": -5.0
   },
   {
     "id": "moon",
@@ -107,7 +123,7 @@
     "radiusKm": 1737.5,
     "magnitude": -12.74,
     "parentId": "earth",
-    "rightAscension": 0.0,
+    "rightAscension": 180.0,
     "declination": 0.0
   },
   {

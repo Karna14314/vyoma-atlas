@@ -10,6 +10,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.conflate
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -69,5 +70,5 @@ class OrientationSensor @Inject constructor(
         awaitClose {
             sensorManager.unregisterListener(listener)
         }
-    }
+    }.conflate()
 }
