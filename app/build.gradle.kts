@@ -7,7 +7,9 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
-val keystorePropertiesFile = rootProject.file("keysbackup/keystore.properties")
+// Load keystore properties - check root first (CI), then keysbackup (local)
+val keystorePropertiesFile = rootProject.file("keystore.properties").takeIf { it.exists() }
+    ?: rootProject.file("keysbackup/keystore.properties")
 val keystoreProperties = Properties()
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(keystorePropertiesFile.inputStream())
@@ -28,8 +30,8 @@ android {
         applicationId = "com.karnadigital.vyoma.atlas"
         minSdk = 24
         targetSdk = 35
-        versionCode = (versionProperties["versionCode"] as String).toInt()
-        versionName = versionProperties["versionName"] as String
+        versionCode = (versionProperties["versionCode"] as? String)?.toInt() ?: 1
+        versionName = versionProperties["versionName"] as? String ?: "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -43,10 +45,12 @@ android {
 
     signingConfigs {
         create("release") {
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-            storeFile = file(keystoreProperties["storeFile"] as String)
-            storePassword = keystoreProperties["storePassword"] as String
+            if (keystoreProperties.isNotEmpty()) {
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties["storeFile"] as String)
+                storePassword = keystoreProperties["storePassword"] as String
+            }
         }
     }
 
