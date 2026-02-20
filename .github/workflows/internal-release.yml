@@ -44,20 +44,6 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
         
-      - name: Auto-increment version
-        run: |
-          chmod +x scripts/increment_version.sh
-          bash scripts/increment_version.sh
-          
-      - name: Commit version bump
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add version.properties
-          git diff --staged --quiet || git commit -m "chore: bump version [skip ci]"
-          git push || echo "No changes to push"
-        continue-on-error: true
-        
       - name: Build Release AAB
         run: ./gradlew bundleRelease
         env:
@@ -89,6 +75,20 @@ jobs:
           name: app-release-${{ steps.version.outputs.version_name }}
           path: app/build/outputs/bundle/release/app-release.aab
           retention-days: 30
+      
+      - name: Auto-increment version for next release
+        run: |
+          chmod +x scripts/increment_version.sh
+          bash scripts/increment_version.sh
+          
+      - name: Commit version bump
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add version.properties
+          git diff --staged --quiet || git commit -m "chore: bump version [skip ci]"
+          git push || echo "No changes to push"
+        continue-on-error: true
           
       - name: Notify success
         if: success()
