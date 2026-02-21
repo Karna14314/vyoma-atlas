@@ -76,7 +76,7 @@ object SkyMapProjector {
             val projectedPos = projectVector(celestialPos, pointing, screenSize, fovDegrees)
 
             if (projectedPos != null) {
-                // Is Is On Screen
+                // Is On Screen
                 return TargetIndicator(
                     isVisible = true,
                     position = projectedPos,
@@ -123,7 +123,9 @@ object SkyMapProjector {
                  // Compose rotation is degrees clockwise?
                  // angleRad is mathematical counter-clockwise from X-axis.
                  // Let's just pass the angle in degrees relative to X-axis (Right).
-                 val degrees = -toDegrees(angleRad.toDouble()).toFloat() // Negative for Clockwise screen Y flip
+                 // Add 90 degrees offset because arrow resource points UP, but 0 degrees (Right) should be 90 degrees rotation?
+                 // If arrow points UP, and we want it to point RIGHT (0 angle), we need +90 rotation.
+                 val degrees = -toDegrees(angleRad.toDouble()).toFloat() + 90f
 
                  val x = clampX.toFloat()
                  val y = clampY.toFloat()
