@@ -51,55 +51,64 @@ class SkyMapViewModel @Inject constructor(
                 _targetId,
                 _currentLocation
             ) { rotationMatrix, objects, screenSize, targetId, location ->
-                
-                // Use real location or fallback
-                val userLocation = location ?: defaultLocation
-                
-                val now = Date()
-                val phoneToCelestial = pointingCalculator.calculatePointingMatrix(
-                    rotationMatrix, userLocation, now
-                )
-                
-                val pointing = Matrix3x3(
-                    phoneToCelestial.xx, phoneToCelestial.yx, phoneToCelestial.zx,
-                    phoneToCelestial.xy, phoneToCelestial.yy, phoneToCelestial.zy,
-                    phoneToCelestial.xz, phoneToCelestial.yz, phoneToCelestial.zz
-                )
-                
-                // 1. All visible objects (Stars, Planets, Nebulae, Galaxies)
-                val visiblePoints = objects
-                    .filter { (it.magnitude ?: 10.0) < 7.0 } // Increased from 6.0 to show more objects
-                    .mapNotNull { obj ->
-                        SkyMapProjector.project(obj, pointing, screenSize, 45f)
+                try {
+                    if (screenSize.width <= 0f || screenSize.height <= 0f) {
+                        return@combine SkyMapState()
                     }
 
-                // 2. Compass
-                val horizon = pointingCalculator.getHorizonVectors(now, userLocation)
-                val compassPoints = listOf(
-                    SkyMapProjector.projectCompassPoint(horizon.north, "N", pointing, screenSize, 45f),
-                    SkyMapProjector.projectCompassPoint(horizon.east, "E", pointing, screenSize, 45f),
-                    SkyMapProjector.projectCompassPoint(horizon.south, "S", pointing, screenSize, 45f),
-                    SkyMapProjector.projectCompassPoint(horizon.west, "W", pointing, screenSize, 45f)
-                ).filterNotNull()
+                    // Use real location or fallback
+                    val userLocation = location ?: defaultLocation
 
-                // 3. Target
-                var targetIndicator: TargetIndicator? = null
-                if (targetId != null) {
-                    val targetObj = objects.find { it.id == targetId }
-                    if (targetObj != null) {
-                        targetIndicator = SkyMapProjector.calculateTargetIndicator(
-                            targetObj, pointing, screenSize, 45f
-                        )
+                    val now = Date()
+                    val phoneToCelestial = pointingCalculator.calculatePointingMatrix(
+                        rotationMatrix, userLocation, now
+                    )
+
+                    val pointing = Matrix3x3(
+                        phoneToCelestial.xx, phoneToCelestial.yx, phoneToCelestial.zx,
+                        phoneToCelestial.xy, phoneToCelestial.yy, phoneToCelestial.zy,
+                        phoneToCelestial.xz, phoneToCelestial.yz, phoneToCelestial.zz
+                    )
+
+                    // 1. All visible objects (Stars, Planets, Nebulae, Galaxies)
+                    val visiblePoints = objects
+                        .filter { (it.magnitude ?: 10.0) < 7.0 } // Increased from 6.0 to show more objects
+                        .mapNotNull { obj ->
+                            SkyMapProjector.project(obj, pointing, screenSize, 45f)
+                        }
+
+                    // 2. Compass
+                    val horizon = pointingCalculator.getHorizonVectors(now, userLocation)
+                    val compassPoints = listOf(
+                        SkyMapProjector.projectCompassPoint(horizon.north, "N", pointing, screenSize, 45f),
+                        SkyMapProjector.projectCompassPoint(horizon.east, "E", pointing, screenSize, 45f),
+                        SkyMapProjector.projectCompassPoint(horizon.south, "S", pointing, screenSize, 45f),
+                        SkyMapProjector.projectCompassPoint(horizon.west, "W", pointing, screenSize, 45f)
+                    ).filterNotNull()
+
+                    // 3. Target
+                    var targetIndicator: TargetIndicator? = null
+                    if (targetId != null) {
+                        val targetObj = objects.find { it.id == targetId }
+                        if (targetObj != null) {
+                            targetIndicator = SkyMapProjector.calculateTargetIndicator(
+                                targetObj, pointing, screenSize, 45f
+                            )
+                        }
                     }
+
+                    SkyMapState(
+                        points = visiblePoints,
+                        compassPoints = compassPoints,
+                        target = targetIndicator
+                    )
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    SkyMapState()
                 }
-
-                SkyMapState(
-                    points = visiblePoints,
-                    compassPoints = compassPoints,
-                    target = targetIndicator
-                )
-                
-            }.collect { newState ->
+            }
+            .flowOn(kotlinx.coroutines.Dispatchers.Default)
+            .collect { newState ->
                 _state.value = newState
             }
         }

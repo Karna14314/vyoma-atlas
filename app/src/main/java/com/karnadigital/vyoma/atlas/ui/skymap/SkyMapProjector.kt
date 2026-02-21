@@ -63,72 +63,82 @@ object SkyMapProjector {
         screenSize: Size,
         fovDegrees: Float
     ): TargetIndicator? {
-        if (obj.rightAscension == null || obj.declination == null) return null
-        
-        val celestialPos = getCelestialVector(obj.rightAscension, obj.declination)
-        
-        // Transform to Device Coordinates
-        val devicePos = pointing * celestialPos
-        
-        // Check if visible
-        val projectedPos = projectVector(celestialPos, pointing, screenSize, fovDegrees)
-        
-        if (projectedPos != null) {
-            // Is Is On Screen
-            return TargetIndicator(
-                isVisible = true,
-                position = projectedPos,
-                objectName = obj.name
-            )
-        } else {
-            // Off Screen
-            // Calculate direction from center (0,0) in device coords (x, y)
-             val dx = devicePos.x
-             // Typically Y is up in 3D, but Screen Y is down.
-             // We want the direction on the screen plane.
-             // In device coords from Stardroid: X=Right, Y=Up, Z=Backward (towards user) if looking at screen?
-             // Let's assume X=Right, Y=Up on the screen plane.
-             val dy = devicePos.y
+        try {
+            if (obj.rightAscension == null || obj.declination == null) return null
+            if (fovDegrees <= 0f || fovDegrees >= 180f) return null
 
-             // Angle on screen: atan2(dy, dx)
-             // Check coordinate flip (West/East). Stardroid X axis direction.
-             // If East is Left, then +X might be Left?
-             // Let's stick generic: Standard math.
-             
-             // We want to point a generic arrow.
-             // Let's compute angle. 0 degrees = Right (East?).
-             // We need to map this to UI rotation.
-             // UI Canvas 0 angle usually 3 o'clock.
-             
-             // We need to clamp the position to a circle edge.
-             val radius = (Math.min(screenSize.width, screenSize.height) / 2f) - 50f
-             val angleRad = atan2(dy, dx)
-             // Invert X because sky map X is usually flipped? 
-             // Logic: If I look Right (+X), and object is there, vector is +X.
-             // If I turn Right, object should move Left on screen.
-             // Guidance should point Right.
-             // So if object is at +X, Arrow should point +X.
-             
-             // Wait, if Z > 0 (Behind), the vector (x,y) is still valid direction to turn.
-             // e.g. (1, 0, 10). To my right and behind. I turn right -> (1, 0, 0).
-             
-             val clampX = (screenSize.width / 2f) + (radius * kotlin.math.cos(angleRad))
-             val clampY = (screenSize.height / 2f) - (radius * kotlin.math.sin(angleRad)) // Y flip for screen
-             
-             // Arrow rotation:
-             // 0 deg is usually Up or Right depending on icon.
-             // If icon points Up (0 deg), and we want it to point at angleRad.
-             // Compose rotation is degrees clockwise?
-             // angleRad is mathematical counter-clockwise from X-axis.
-             // Let's just pass the angle in degrees relative to X-axis (Right).
-             val degrees = -toDegrees(angleRad.toDouble()).toFloat() // Negative for Clockwise screen Y flip
-             
-             return TargetIndicator(
-                 isVisible = false,
-                 position = Offset(clampX.toFloat(), clampY.toFloat()),
-                 directionAngle = degrees,
-                 objectName = obj.name
-             )
+            val celestialPos = getCelestialVector(obj.rightAscension, obj.declination)
+
+            // Transform to Device Coordinates
+            val devicePos = pointing * celestialPos
+
+            // Check if visible
+            val projectedPos = projectVector(celestialPos, pointing, screenSize, fovDegrees)
+
+            if (projectedPos != null) {
+                // Is Is On Screen
+                return TargetIndicator(
+                    isVisible = true,
+                    position = projectedPos,
+                    objectName = obj.name
+                )
+            } else {
+                // Off Screen
+                // Calculate direction from center (0,0) in device coords (x, y)
+                 val dx = devicePos.x
+                 // Typically Y is up in 3D, but Screen Y is down.
+                 // We want the direction on the screen plane.
+                 // In device coords from Stardroid: X=Right, Y=Up, Z=Backward (towards user) if looking at screen?
+                 // Let's assume X=Right, Y=Up on the screen plane.
+                 val dy = devicePos.y
+
+                 // Angle on screen: atan2(dy, dx)
+                 // Check coordinate flip (West/East). Stardroid X axis direction.
+                 // If East is Left, then +X might be Left?
+                 // Let's stick generic: Standard math.
+
+                 // We want to point a generic arrow.
+                 // Let's compute angle. 0 degrees = Right (East?).
+                 // We need to map this to UI rotation.
+                 // UI Canvas 0 angle usually 3 o'clock.
+
+                 // We need to clamp the position to a circle edge.
+                 val radius = (Math.min(screenSize.width, screenSize.height) / 2f) - 50f
+                 val angleRad = atan2(dy, dx)
+                 // Invert X because sky map X is usually flipped?
+                 // Logic: If I look Right (+X), and object is there, vector is +X.
+                 // If I turn Right, object should move Left on screen.
+                 // Guidance should point Right.
+                 // So if object is at +X, Arrow should point +X.
+
+                 // Wait, if Z > 0 (Behind), the vector (x,y) is still valid direction to turn.
+                 // e.g. (1, 0, 10). To my right and behind. I turn right -> (1, 0, 0).
+
+                 val clampX = (screenSize.width / 2f) + (radius * kotlin.math.cos(angleRad))
+                 val clampY = (screenSize.height / 2f) - (radius * kotlin.math.sin(angleRad)) // Y flip for screen
+
+                 // Arrow rotation:
+                 // 0 deg is usually Up or Right depending on icon.
+                 // If icon points Up (0 deg), and we want it to point at angleRad.
+                 // Compose rotation is degrees clockwise?
+                 // angleRad is mathematical counter-clockwise from X-axis.
+                 // Let's just pass the angle in degrees relative to X-axis (Right).
+                 val degrees = -toDegrees(angleRad.toDouble()).toFloat() // Negative for Clockwise screen Y flip
+
+                 val x = clampX.toFloat()
+                 val y = clampY.toFloat()
+
+                 if (x.isNaN() || y.isNaN() || degrees.isNaN()) return null
+
+                 return TargetIndicator(
+                     isVisible = false,
+                     position = Offset(x, y),
+                     directionAngle = degrees,
+                     objectName = obj.name
+                 )
+            }
+        } catch (e: Exception) {
+            return null
         }
     }
 
@@ -157,10 +167,12 @@ object SkyMapProjector {
             // Safety check: Behind camera, too close, or at zenith/nadir (gimbal lock)
             if (z <= 0.1f || z.isNaN() || z.isInfinite()) return null
 
+            if (fovDegrees <= 0f || fovDegrees >= 180f) return null
+
             val factor = tan(Math.toRadians(fovDegrees / 2.0)).toFloat()
             
             // Additional safety: check factor validity
-            if (factor <= 0.0f || factor.isNaN() || factor.isInfinite()) return null
+            if (factor <= 0.0001f || factor.isNaN() || factor.isInfinite()) return null
             
             val xRaw = devicePos.x / z / factor
             val yRaw = devicePos.y / z / factor
