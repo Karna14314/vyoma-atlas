@@ -31,7 +31,7 @@ import com.karnadigital.vyoma.atlas.ui.theme.*
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.karnadigital.vyoma.atlas.ui.viewmodel.DetailViewModel
 
-import coil.compose.AsyncImage
+import com.karnadigital.vyoma.atlas.ui.common.AstronomyImage
 import androidx.compose.ui.layout.ContentScale
 
 @Composable
@@ -67,9 +67,9 @@ fun ObjectDetailScreen(
                 contentAlignment = Alignment.Center
             ) {
                 if (astronomicalObject?.imageUrl != null) {
-                    AsyncImage(
-                        model = astronomicalObject?.imageUrl,
-                        contentDescription = astronomicalObject?.name,
+                    AstronomyImage(
+                        imageUrl = astronomicalObject?.imageUrl,
+                        objectName = astronomicalObject?.name ?: "Unknown",
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop
                     )
@@ -237,9 +237,9 @@ fun MiniObjectCard(
             contentAlignment = Alignment.Center
         ) {
             if (imageUrl != null) {
-                AsyncImage(
-                    model = imageUrl,
-                    contentDescription = name,
+                AstronomyImage(
+                    imageUrl = imageUrl,
+                    objectName = name,
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop
                 )

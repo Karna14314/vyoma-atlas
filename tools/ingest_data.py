@@ -148,6 +148,7 @@ class DataIngestion:
         if not os.path.exists(stars_file): return
         current_source = {}
         level = 0
+        unnamed_counter = 0
         with open(stars_file, 'r', encoding='utf-8') as f:
             for line in f:
                 line = line.strip()
@@ -164,9 +165,70 @@ class DataIngestion:
                     if "declination:" in line:
                         try: current_source["declination"] = float(line.split(":")[1].strip())
                         except: pass
+                    if "size:" in line:
+                        try:
+                            # Stardroid size inversely maps to magnitude (approx)
+                            size = int(line.split(":")[1].strip())
+                            current_source["magnitude"] = 6.0 - size
+                        except: pass
                     if "strings_str_id:" in line:
                         val = line.split(":")[1].strip().replace('"', '')
                         current_source["id"] = self.normalize_id(val)
+                        current_source["name"] = val.replace('_', ' ').title()
+                level -= close_count
+                if level == 0 and close_count > 0 and current_source:
+                    # If unnamed, generate stable id
+                    if "id" not in current_source and "rightAscension" in current_source:
+                        ra = current_source["rightAscension"]
+                        dec = current_source.get("declination", 0.0)
+                        current_source["id"] = f"star_{ra:.2f}_{dec:.2f}".replace(".", "_").replace("-", "m")
+                        current_source["name"] = f"Star ({ra:.2f}, {dec:.2f})"
+                        unnamed_counter += 1
+                        
+                    if "id" in current_source:
+                        self.merge_object(current_source["id"], current_source)
+                    current_source = {}
+        print(f"  Added {unnamed_counter} unnamed stars")
+
+    def process_messier_ascii(self):
+        print("Processing messier.ascii...")
+        messier_file = os.path.join(STARDROID_DIR, "messier.ascii")
+        if not os.path.exists(messier_file): return
+        current_source = {}
+        level = 0
+        with open(messier_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line: continue
+                if level == 0 and line.startswith("source"):
+                    current_source = {"type": "GALAXY"}
+                open_count = line.count('{')
+                close_count = line.count('}')
+                level += open_count
+                if level >= 1:
+                    if "right_ascension:" in line:
+                        try: current_source["rightAscension"] = float(line.split(":")[1].strip())
+                        except: pass
+                    if "declination:" in line:
+                        try: current_source["declination"] = float(line.split(":")[1].strip())
+                        except: pass
+                    if "size:" in line:
+                        try:
+                            size = int(line.split(":")[1].strip())
+                            current_source["magnitude"] = 8.0 - size
+                        except: pass
+                    if "shape:" in line:
+                        shape = line.split(":")[1].strip()
+                        if "NEBULA" in shape:
+                            current_source["type"] = "NEBULA"
+                        elif "CLUSTER" in shape:
+                            current_source["type"] = "STAR_CLUSTER"
+                    if "strings_str_id:" in line:
+                        val = line.split(":")[1].strip().replace('"', '')
+                        current_source["id"] = self.normalize_id(val)
+                        current_source["name"] = val.replace('_', ' ').upper()
+                        # Tie image if known stardroid asset
+                        current_source["imageUrl"] = f"images/{current_source['id']}.png"
                 level -= close_count
                 if level == 0 and close_count > 0 and current_source:
                     if "id" in current_source:
@@ -196,4 +258,5 @@ if __name__ == "__main__":
     di.process_complete_json()
     di.process_moons_json() # Call moons
     di.process_stars_ascii()
+    di.process_messier_ascii()
     di.save()
