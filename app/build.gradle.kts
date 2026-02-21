@@ -30,8 +30,8 @@ android {
         applicationId = "com.karnadigital.vyoma.atlas"
         minSdk = 24
         targetSdk = 35
-        versionCode = (versionProperties["versionCode"] as? String)?.toInt() ?: 1
-        versionName = versionProperties["versionName"] as? String ?: "1.0.0"
+        versionCode = System.getenv("APP_VERSION_CODE")?.toInt() ?: (versionProperties["versionCode"] as? String)?.toInt() ?: 1
+        versionName = System.getenv("APP_VERSION_NAME") ?: versionProperties["versionName"] as? String ?: "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
