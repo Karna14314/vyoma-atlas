@@ -13,6 +13,10 @@ class DatabaseInitializer(
     private val context: Context,
     private val daoProvider: () -> AstronomicalObjectDao
 ) {
+    private fun getNullableString(json: org.json.JSONObject, key: String): String? {
+        return if (json.has(key) && !json.isNull(key)) json.getString(key) else null
+    }
+
     fun initialize() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -29,16 +33,16 @@ class DatabaseInitializer(
                             id = jsonObject.getString("id"),
                             name = jsonObject.getString("name"),
                             type = jsonObject.getString("type"),
-                            description = jsonObject.optString("description", null),
+                            description = getNullableString(jsonObject, "description"),
                             distanceAu = if (jsonObject.has("distanceAu")) jsonObject.getDouble("distanceAu") else null,
                             distanceLy = if (jsonObject.has("distanceLy")) jsonObject.getDouble("distanceLy") else null,
                             radiusKm = if (jsonObject.has("radiusKm")) jsonObject.getDouble("radiusKm") else null,
                             magnitude = if (jsonObject.has("magnitude")) jsonObject.getDouble("magnitude") else null,
-                            constellation = jsonObject.optString("constellation", null),
-                            imageUrl = jsonObject.optString("imageUrl", null),
+                            constellation = getNullableString(jsonObject, "constellation"),
+                            imageUrl = getNullableString(jsonObject, "imageUrl"),
                             rightAscension = if (jsonObject.has("rightAscension")) jsonObject.getDouble("rightAscension") else null,
                             declination = if (jsonObject.has("declination")) jsonObject.getDouble("declination") else null,
-                            parentId = jsonObject.optString("parentId", null)
+                            parentId = getNullableString(jsonObject, "parentId")
                         )
                     )
                 }

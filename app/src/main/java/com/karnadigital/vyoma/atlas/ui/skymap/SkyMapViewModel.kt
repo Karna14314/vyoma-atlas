@@ -1,5 +1,6 @@
 package com.karnadigital.vyoma.atlas.ui.skymap
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -103,7 +104,7 @@ class SkyMapViewModel @Inject constructor(
                         target = targetIndicator
                     )
                 } catch (e: Exception) {
-                    e.printStackTrace()
+                    Log.e("SkyMapViewModel", "Error calculating sky map projection", e)
                     SkyMapState()
                 }
             }
