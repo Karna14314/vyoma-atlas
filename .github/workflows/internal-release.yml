@@ -7,20 +7,34 @@ on:
       - master
     paths:
       - 'app/**'
-      - 'version.properties'
       - '.github/workflows/internal-release.yml'
 
-permissions:
-  contents: write
+# Cancel any in-progress runs for the same branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    name: Build & Deploy AAB
     runs-on: ubuntu-latest
     
+    env:
+      # Offset to ensure version codes exceed any previously uploaded ones
+      VERSION_CODE_OFFSET: 3
+      # Major.Minor prefix for versionName (versionName = VERSION_PREFIX.BUILD_NUMBER)
+      VERSION_PREFIX: '1.0'
+    
     steps:
+      # ════════════════════════════════════════════════════════════════════════════════
+      # 1. Checkout the repository
+      # ════════════════════════════════════════════════════════════════════════════════
       - name: Checkout code
         uses: actions/checkout@v4
         
+      # ════════════════════════════════════════════════════════════════════════════════
+      # 2. Set up Java (required for Android/Gradle)
+      # ════════════════════════════════════════════════════════════════════════════════
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -28,42 +42,88 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       
+      # ════════════════════════════════════════════════════════════════════════════════
+      # 3. Decode the Android Keystore from secrets
+      # ════════════════════════════════════════════════════════════════════════════════
       - name: Decode Keystore
-        env:
-          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_FILE }}
         run: |
-          echo "$KEYSTORE_BASE64" | base64 -d > $GITHUB_WORKSPACE/release.jks
+          echo "${{ secrets.KEYSTORE_FILE }}" | base64 -d > $GITHUB_WORKSPACE/release.jks
+          echo "Keystore decoded successfully"
+          ls -la $GITHUB_WORKSPACE/release.jks
           
+      # ════════════════════════════════════════════════════════════════════════════════
+      # 4. Create keystore.properties file
+      # ════════════════════════════════════════════════════════════════════════════════
       - name: Create keystore.properties
         run: |
-          echo "storePassword=${{ secrets.KEYSTORE_PASSWORD }}" > keystore.properties
-          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
-          echo "keyAlias=${{ secrets.KEY_ALIAS }}" >> keystore.properties
-          echo "storeFile=$GITHUB_WORKSPACE/release.jks" >> keystore.properties
+          cat > keystore.properties << EOF
+          storePassword=${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword=${{ secrets.KEY_PASSWORD }}
+          keyAlias=${{ secrets.KEY_ALIAS }}
+          storeFile=$GITHUB_WORKSPACE/release.jks
+          EOF
+          echo "keystore.properties created successfully"
           
+      # ════════════════════════════════════════════════════════════════════════════════
+      # 5. Grant execute permission for gradlew
+      # ════════════════════════════════════════════════════════════════════════════════
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
         
-      - name: Calculate Dynamic Version
+      # ════════════════════════════════════════════════════════════════════════════════
+      # 6. Compute Version (using GitHub run number)
+      # ════════════════════════════════════════════════════════════════════════════════
+      - name: Compute Version
         id: version
+        env:
+          OFFSET: ${{ env.VERSION_CODE_OFFSET }}
+          RUN_NUM: ${{ github.run_number }}
+          PREFIX: ${{ env.VERSION_PREFIX }}
         run: |
-          BASE_VERSION_CODE=$(grep "versionCode=" version.properties | cut -d'=' -f2)
-          BASE_VERSION_NAME=$(grep "versionName=" version.properties | cut -d'=' -f2)
-          VERSION_CODE=$((BASE_VERSION_CODE + ${{ github.run_number }}))
-          VERSION_NAME="${BASE_VERSION_NAME}.${{ github.run_number }}"
-          echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
+          # Use shell arithmetic with defaults
+          OFFSET=${OFFSET:-3}
+          RUN_NUM=${RUN_NUM:-1}
+          PREFIX=${PREFIX:-1.0}
+          
+          echo "DEBUG: OFFSET='$OFFSET', RUN_NUM='$RUN_NUM', PREFIX='$PREFIX'"
+          
+          BUILD_NUMBER=$(( RUN_NUM + OFFSET ))
+          VERSION_NAME="${PREFIX}.${BUILD_NUMBER}"
+          
+          echo "version_code=$BUILD_NUMBER" >> $GITHUB_OUTPUT
           echo "version_name=$VERSION_NAME" >> $GITHUB_OUTPUT
           
+          echo "Computed versionCode: $BUILD_NUMBER (Run: $RUN_NUM + Offset: $OFFSET)"
+          echo "Computed versionName: $VERSION_NAME"
+        
+      # ════════════════════════════════════════════════════════════════════════════════
+      # 7. Build Release AAB
+      # ════════════════════════════════════════════════════════════════════════════════
       - name: Build Release AAB
-        run: ./gradlew bundleRelease
+        run: |
+          echo "Building AAB — versionCode=${{ steps.version.outputs.version_code }}, versionName=${{ steps.version.outputs.version_name }}"
+          ./gradlew bundleRelease \
+            -PversionCode=${{ steps.version.outputs.version_code }} \
+            -PversionName=${{ steps.version.outputs.version_name }}
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          APP_VERSION_CODE: ${{ steps.version.outputs.version_code }}
-          APP_VERSION_NAME: ${{ steps.version.outputs.version_name }}
           
-      - name: Upload to Play Store Internal Testing
+      # ════════════════════════════════════════════════════════════════════════════════
+      # 8. Upload AAB as build artifact (for debugging)
+      # ════════════════════════════════════════════════════════════════════════════════
+      - name: Upload AAB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-aab-v${{ steps.version.outputs.version_name }}
+          path: app/build/outputs/bundle/release/app-release.aab
+          retention-days: 30
+          
+      # ════════════════════════════════════════════════════════════════════════════════
+      # 9. Deploy to Google Play Internal Track
+      # ════════════════════════════════════════════════════════════════════════════════
+      - name: Deploy to Google Play (Internal Testing)
         uses: r0adkll/upload-google-play@v1.1.3
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
@@ -71,18 +131,23 @@ jobs:
           releaseFiles: app/build/outputs/bundle/release/app-release.aab
           track: internal
           status: completed
-          whatsNewDirectory: distribution
+          whatsNewDirectory: distribution/whatsnew
+        continue-on-error: false
           
-      - name: Upload AAB artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-release-${{ steps.version.outputs.version_name }}
-          path: app/build/outputs/bundle/release/app-release.aab
-          retention-days: 30
-      
-
-          
-      - name: Notify success
+      # ════════════════════════════════════════════════════════════════════════════════
+      # 10. Post-deploy summary
+      # ════════════════════════════════════════════════════════════════════════════════
+      - name: Deployment Summary
         if: success()
         run: |
-          echo "✅ Successfully deployed version ${{ steps.version.outputs.version_name }} (code: ${{ steps.version.outputs.version_code }}) to Play Store Internal Testing!"
+          echo "## ✅ Deployment Successful!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Detail | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| **App** | Vyoma Atlas |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Package** | com.karnadigital.vyoma.atlas |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Track** | Internal Testing |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Version Name** | ${{ steps.version.outputs.version_name }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Version Code** | ${{ steps.version.outputs.version_code }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Commit** | ${{ github.sha }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Triggered by** | ${{ github.actor }} |" >> $GITHUB_STEP_SUMMARY

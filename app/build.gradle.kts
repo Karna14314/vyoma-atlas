@@ -15,12 +15,22 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(keystorePropertiesFile.inputStream())
 }
 
-// Load version properties
+// Version handling: CI takes precedence, then Gradle properties, then version.properties file
+val versionCodeFromCI = project.findProperty("versionCode")?.toString()?.toIntOrNull()
+val versionNameFromCI = project.findProperty("versionName")?.toString()
+
 val versionPropertiesFile = rootProject.file("version.properties")
 val versionProperties = Properties()
 if (versionPropertiesFile.exists()) {
     versionProperties.load(versionPropertiesFile.inputStream())
 }
+
+val appVersionCode = versionCodeFromCI 
+    ?: (versionProperties["versionCode"] as? String)?.toIntOrNull() 
+    ?: 1
+val appVersionName = versionNameFromCI 
+    ?: versionProperties["versionName"] as? String 
+    ?: "1.0.0"
 
 android {
     namespace = "com.karnadigital.vyoma.atlas"
@@ -30,8 +40,8 @@ android {
         applicationId = "com.karnadigital.vyoma.atlas"
         minSdk = 24
         targetSdk = 35
-        versionCode = System.getenv("APP_VERSION_CODE")?.toInt() ?: (versionProperties["versionCode"] as? String)?.toInt() ?: 1
-        versionName = System.getenv("APP_VERSION_NAME") ?: versionProperties["versionName"] as? String ?: "1.0.0"
+        versionCode = appVersionCode
+        versionName = appVersionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
